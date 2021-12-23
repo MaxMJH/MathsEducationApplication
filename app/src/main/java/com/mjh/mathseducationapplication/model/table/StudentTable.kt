@@ -14,6 +14,14 @@ class StudentTable(context: Context, dbName: String, version: Int): DatabaseHelp
     private val columnStudentName: String = "studentName"
 
     /*---- Methods ----*/
+    /**
+     * Adds a student to the StudentTable of MathsEducation database. If the output of the insert
+     * method is -1, then the query has failed, of which will be returned as false. Vice versa,
+     * if the query is successful, true will be returned.
+     *
+     * @param student Student object that will be attempted to be added into Student table.
+     * @return true if the student was added or false if the student failed to be added.
+     */
     fun addStudent(student: Student): Boolean {
         val database: SQLiteDatabase = this.writableDatabase
         val contentValues: ContentValues = ContentValues()
@@ -83,14 +91,38 @@ class StudentTable(context: Context, dbName: String, version: Int): DatabaseHelp
         return studentList
     }
 
+    fun getNextStudentID(): Int {
+        val database: SQLiteDatabase = this.readableDatabase
+        val sqlStatement: String = "SELECT * FROM ${this.tableName} WHERE ${this.columnStudentID} = (SELECT MAX(${this.columnStudentID}) FROM ${this.tableName})"
+
+        val cursor: Cursor = database.rawQuery(sqlStatement, null)
+
+        if(cursor.moveToFirst()) {
+            return cursor.getInt(0) + 1
+        }
+
+        return 1
+    }
+
+    fun studentExists(studentName: String): Int {
+        val database: SQLiteDatabase = this.readableDatabase
+        val sqlStatement: String = "SELECT ${this.columnStudentID} FROM ${this.tableName} WHERE '$studentName' = ${this.columnStudentName}"
+
+        val cursor: Cursor = database.rawQuery(sqlStatement, null)
+
+        if(cursor.moveToFirst()) {
+            return cursor.getInt(0)
+        }
+
+        return -1
+    }
+
     /*---- Overridden Methods ----*/
     override fun onCreate(db: SQLiteDatabase?) {
-        val sqlStatement: String = "CREATE TABLE ${this.tableName} (" +
-                "${this.columnStudentID} INTEGER UNIQUE, " +
-                "${this.columnStudentName} TEXT NOT NULL, " +
-                "PRIMARY KEY(${this.columnStudentID} AUTOINCREMENT));"
-
-        println("DONE!")
+        val sqlStatement: String = "CREATE TABLE \"${this.tableName}\" (" +
+                "\"${this.columnStudentID}\" INTEGER UNIQUE, " +
+                "\"${this.columnStudentName}\" TEXT NOT NULL, " +
+                "PRIMARY KEY(\"${this.columnStudentID}\" AUTOINCREMENT));"
 
         db?.execSQL(sqlStatement)
     }

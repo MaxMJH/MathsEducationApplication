@@ -1,5 +1,6 @@
 package com.mjh.mathseducationapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,10 +21,23 @@ class MainActivity : AppCompatActivity() {
 
     fun start(view: View) {
         val studentName: String = findViewById<EditText>(R.id.editTextStudentName).text.toString()
+        var student: Student?
 
         if(Validate.validateStudentName(studentName)) {
-            val student: Student = Student(0, studentName)
-            studentTable.addStudent(student)
+            val studentID: Int = this.studentTable.studentExists(studentName)
+
+            // If the student does not exist
+            if(studentID == -1) {
+                student = Student(this.studentTable.getNextStudentID(), studentName)
+                studentTable.addStudent(student)
+            } else {
+                student = Student(studentID, studentName)
+            }
+
+            val intent: Intent = Intent(this, DashboardActivity::class.java).apply {
+                putExtra("student", student)
+            }
+            startActivity(intent)
         } else {
             Toast.makeText(this, "Invalid Name! Make sure not to use punctuation!", Toast.LENGTH_SHORT).show()
         }

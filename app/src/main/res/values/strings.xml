@@ -4,4 +4,8 @@
     <string name="textViewPleaseEnterYourName">Please enter your name to continue</string>
     <string name="textViewName">Name</string>
     <string name="buttonStart">Start</string>
+    <string name="textViewWelcome">Welcome</string>
+    <string name="buttonStartTest">Start Test</string>
+    <string name="buttonAdminSection">Admin Section</string>
+    <string name="buttonSubmit">Submit</string>
 </resources>
