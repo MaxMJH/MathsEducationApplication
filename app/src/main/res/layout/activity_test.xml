@@ -4,15 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background"
     tools:context=".TestActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="657dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +27,8 @@
                 android:layout_marginStart="160dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="161dp"
+                android:text="1 / 14"
+                android:textColor="#424242"
                 android:textSize="34sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,30 +41,44 @@
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="23dp"
+                android:text="Example Question"
                 android:textAlignment="center"
+                android:textColor="#424242"
                 android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCurrentQuestion" />
 
+            <ImageView
+                android:id="@+id/imageViewQuestionPicture"
+                android:layout_width="148dp"
+                android:layout_height="156dp"
+                android:layout_marginStart="128dp"
+                android:layout_marginTop="164dp"
+                android:scaleType="fitEnd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/lion" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/answerLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#E1E1E1">
+            android:layout_height="match_parent">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="157dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="162dp"
+                android:background="@drawable/button"
                 android:onClick="submitAnswer"
                 android:text="@string/buttonSubmit"
+                android:textColor="#424242"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,11 +86,15 @@
 
             <RadioGroup
                 android:id="@+id/radioGroupAnswers"
-                android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_width="0dp"
+                android:layout_height="271dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="93dp"
                 android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="16dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <RadioButton
                     android:id="@+id/radioButtonAnswer1"
@@ -85,6 +102,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="answerSelect"
+                    android:text="Answer 1"
+                    android:textColor="#424242"
+                    android:textSize="34sp"
                     tools:ignore="DuplicateSpeakableTextCheck" />
 
                 <RadioButton
@@ -92,14 +112,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="answerSelect" />
+                    android:onClick="answerSelect"
+                    android:text="Answer 2"
+                    android:textColor="#424242"
+                    android:textSize="34sp" />
 
                 <RadioButton
                     android:id="@+id/radioButtonAnswer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="answerSelect" />
+                    android:onClick="answerSelect"
+                    android:text="Answer 3"
+                    android:textColor="#424242"
+                    android:textSize="34sp" />
 
             </RadioGroup>
 

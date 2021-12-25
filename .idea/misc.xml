@@ -3,13 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/drawable/button.xml" value="0.5703125" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/drawable/button_start.xml" value="0.509375" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/drawable/edit_text.xml" value="0.346875" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/drawable/gradient_background.xml" value="0.346875" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5703125" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout-land/activity_main.xml" value="0.4691358024691358" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout-land/activity_test.xml" value="0.4691358024691358" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_admin_login.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_admin_section.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_dashboard.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_test.xml" value="0.5" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_test_result.xml" value="0.5541666666666667" />
       </map>
     </option>
   </component>

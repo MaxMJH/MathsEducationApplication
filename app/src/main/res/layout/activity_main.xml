@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
@@ -14,10 +14,10 @@
         android:layout_marginStart="95dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="96dp"
-        android:background="@drawable/button_start"
+        android:background="@drawable/button"
         android:onClick="start"
         android:text="@string/buttonStart"
-        android:textColor="#FFFFFF"
+        android:textColor="#424242"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

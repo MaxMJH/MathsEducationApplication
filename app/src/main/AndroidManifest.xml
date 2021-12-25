@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathsEducationApplication">
         <activity
+            android:name=".AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".TestActivity"
             android:exported="false" />
         <activity

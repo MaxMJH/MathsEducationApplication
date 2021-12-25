@@ -4,13 +4,12 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteDatabaseLockedException
 import com.mjh.mathseducationapplication.model.Test
 import com.mjh.mathseducationapplication.model.util.DatabaseHelper
 
 class TestTable(context: Context, dbName: String, version: Int): DatabaseHelper(context, dbName, version) {
     /*---- Fields ----*/
-    override val tableName: String = "Test"
+    private val tableName: String = "Test"
     private val columnTestID: String = "testID"
     private val columnStudentID: String = "studentID"
     private val columnResult: String = "result"
@@ -35,11 +34,16 @@ class TestTable(context: Context, dbName: String, version: Int): DatabaseHelper(
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 
+        var testID: Int = 1
+
         if(cursor.moveToFirst()) {
-            return cursor.getInt(0)
+            testID = cursor.getInt(0)
         }
 
-        return 1
+        database.close()
+        cursor.close()
+
+        return testID
     }
 
     fun updateTest(test: Test): Boolean {
@@ -52,21 +56,5 @@ class TestTable(context: Context, dbName: String, version: Int): DatabaseHelper(
 
         database.close()
         return querySuccess == 1
-    }
-
-    /*---- Overridden Methods ----*/
-    override fun onCreate(db: SQLiteDatabase?) {
-        val sqlStatement: String = "CREATE TABLE \"${this.tableName}\" (" +
-                "\"${this.columnTestID}\" INTEGER UNIQUE, " +
-                "\"${this.columnStudentID}\" INTEGER NOT NULL, " +
-                "\"${this.columnResult}\" REAL NOT NULL, " +
-                "FOREIGN KEY(\"${this.columnStudentID}\") REFERENCES \"Student\" ON DELETE CASCADE, " +
-                "PRIMARY KEY(\"${this.columnTestID}\" AUTOINCREMENT));"
-
-        db?.execSQL(sqlStatement)
-    }
-
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
     }
 }

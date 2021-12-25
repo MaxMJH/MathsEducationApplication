@@ -8,4 +8,11 @@
     <string name="buttonStartTest">Start Test</string>
     <string name="buttonAdminSection">Admin Section</string>
     <string name="buttonSubmit">Submit</string>
+    <string name="textViewCongratulations">Congratulations,</string>
+    <string name="textViewYouScored">You Scored:</string>
+    <string name="buttonBackToDashboard">Back to Dashboard</string>
+    <string name="textViewAdminCredentials">Enter admin credentials</string>
+    <string name="textViewAdminNameAndPassword">Please enter admin name and password to continue</string>
+    <string name="textViewAdminPassword">Password</string>
+    <string name="buttonLogin">Login</string>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background"
     tools:context=".DashboardActivity">
 
     <TextView
@@ -28,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="129dp"
         android:layout_marginEnd="129dp"
-        android:text="Student Name"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,21 +73,23 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" >
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/buttonAdminSection"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="13dp"
-                            android:layout_marginTop="66dp"
-                            android:layout_marginEnd="14dp"
+                            android:layout_width="115dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="33dp"
+                            android:layout_marginTop="64dp"
+                            android:layout_marginEnd="33dp"
+                            android:background="@drawable/button"
                             android:onClick="startAdminSection"
                             android:text="@string/buttonAdminSection"
+                            android:textColor="#424242"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -101,21 +102,23 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" >
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/buttonStartTest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="115dp"
+                            android:layout_height="48dp"
                             android:layout_marginStart="29dp"
                             android:layout_marginTop="66dp"
                             android:layout_marginEnd="29dp"
+                            android:background="@drawable/button"
                             android:onClick="startTest"
                             android:text="@string/buttonStartTest"
+                            android:textColor="#424242"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
