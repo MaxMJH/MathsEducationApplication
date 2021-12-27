@@ -1,5 +1,6 @@
 package com.mjh.mathseducationapplication.model.table
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -15,7 +16,7 @@ class AnswerTable(context: Context, dbName: String, version: Int): DatabaseHelpe
     /*---- Methods ----*/
     fun getAnswer(answerID: Int): Answer {
         val database: SQLiteDatabase = this.readableDatabase
-        val sqlStatement: String = "SELECT \"Answer\".\"${this.columnAnswer}\" FROM \"Question\" INNER JOIN \"${this.tableName}\" ON \"Question\".\"questionID\" = \"${this.tableName}\".\"${this.columnAnswerID}\" WHERE \"Question\".\"answerID\" = $answerID"
+        val sqlStatement: String = "SELECT \"Answer\".\"${this.columnAnswer}\" FROM \"Question\" INNER JOIN \"${this.tableName}\" ON \"Question\".\"answerID\" = \"${this.tableName}\".\"${this.columnAnswerID}\" WHERE \"Question\".\"answerID\" = $answerID"
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 
@@ -49,5 +50,45 @@ class AnswerTable(context: Context, dbName: String, version: Int): DatabaseHelpe
         cursor.close()
 
         return answerList
+    }
+
+    fun addAnswer(answer: Answer): Boolean {
+        val database: SQLiteDatabase = this.writableDatabase
+        val contentValues: ContentValues = ContentValues()
+
+        contentValues.put(this.columnAnswer, answer.answer)
+
+        val querySuccess: Long = database.insert(this.tableName, null, contentValues)
+        database.close()
+
+        return querySuccess != -1L
+    }
+
+    fun getLastAnswerID(): Int {
+        val database: SQLiteDatabase = this.readableDatabase
+        val sqlStatement: String = "SELECT * FROM ${this.tableName} WHERE ${this.columnAnswerID} = (SELECT MAX(${this.columnAnswerID}) FROM ${this.tableName})"
+
+        val cursor: Cursor = database.rawQuery(sqlStatement, null)
+
+        var answerID: Int = 1
+
+        if(cursor.moveToFirst()) {
+            answerID = cursor.getInt(0)
+        }
+
+        database.close()
+        cursor.close()
+
+        return answerID
+    }
+
+    fun removeAnswer(answer: Answer): Boolean {
+        val database: SQLiteDatabase = this.writableDatabase
+
+        val querySuccess: Int = database.delete(this.tableName, "${this.columnAnswerID} = ${answer.answerID}", null)
+
+        database.close()
+
+        return querySuccess == 1
     }
 }

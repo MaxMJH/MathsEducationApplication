@@ -10,12 +10,27 @@
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5703125" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout-land/activity_main.xml" value="0.4691358024691358" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout-land/activity_test.xml" value="0.4691358024691358" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_add_admin.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_add_answer.xml" value="0.48489583333333336" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_add_question.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_admin_list_view.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_admin_login.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_admin_section.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_admin_section.xml" value="0.48489583333333336" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_answers_list_view.xml" value="0.48489583333333336" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_dashboard.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_list_view.xml" value="0.37395833333333334" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_question_and_answer_list_view.xml" value="0.5" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_question_and_answer_list_view2.xml" value="0.48489583333333336" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_remove_question.xml" value="0.37395833333333334" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_test.xml" value="0.5" />
         <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_test_result.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_user.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_user_list_view.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_view_admins.xml" value="0.4427083333333333" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_view_answers.xml" value="0.48489583333333336" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_view_questions_and_answers.xml" value="0.37395833333333334" />
+        <entry key="..\:/Users/Max/Desktop/University Work/Year 3/Term 1/Mobile Application Development/Coursework/MathsEducationApplication/app/src/main/res/layout/activity_view_questions_with_answers.xml" value="0.48489583333333336" />
       </map>
     </option>
   </component>

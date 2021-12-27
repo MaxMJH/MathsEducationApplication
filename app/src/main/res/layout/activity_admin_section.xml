@@ -4,6 +4,224 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".AdminSectionActivity">
+
+    <TextView
+        android:id="@+id/textViewAdminSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="49dp"
+        android:text="@string/textViewAdminSection"
+        android:textColor="#424242"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollViewAdminSection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="95dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewAddQuestion"
+                android:layout_width="181.5dp"
+                android:layout_height="181.5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonAddQuestion"
+                        android:layout_width="126dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="66dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button"
+                        android:onClick="addQuestion"
+                        android:text="@string/buttonAddQuestion"
+                        android:textColor="#424242"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewViewQuestionsWithAnswers"
+                android:layout_width="181.5dp"
+                android:layout_height="181.5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonViewQuestionsAndAnswers"
+                        android:layout_width="126dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="66dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button"
+                        android:onClick="viewQuestionsWithAnswers"
+                        android:text="@string/buttonViewQuestionsAndAnswers"
+                        android:textColor="#424242"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewAddAnswer"
+                android:layout_width="181.5dp"
+                android:layout_height="181.5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewAddQuestion">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonAddAsnwer"
+                        android:layout_width="126dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="66dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button"
+                        android:onClick="addAnswer"
+                        android:text="@string/buttonAddAnswer"
+                        android:textColor="#424242"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewRemoveAnswer"
+                android:layout_width="181.5dp"
+                android:layout_height="181.5dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewViewQuestionsWithAnswers" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonViewAnswers"
+                        android:layout_width="126dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="66dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button"
+                        android:onClick="viewAnswers"
+                        android:text="@string/buttonViewAnswers"
+                        android:textColor="#424242"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TextContrastCheck" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewAddAdmin"
+                android:layout_width="181.5dp"
+                android:layout_height="181.5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewRemoveAnswer">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonAddAdmin"
+                        android:layout_width="126dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="66dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button"
+                        android:onClick="addAdmin"
+                        android:text="@string/buttonAddAdmin"
+                        android:textColor="#424242"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewRemoveAdmin"
+                android:layout_width="181.5dp"
+                android:layout_height="181.5dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewRemoveAnswer">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonViewAdmins"
+                        android:layout_width="126dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginTop="66dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="@drawable/button"
+                        android:onClick="viewAdmins"
+                        android:text="@string/buttonViewAdmins"
+                        android:textColor="#424242"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TextContrastCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

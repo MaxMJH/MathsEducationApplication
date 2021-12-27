@@ -1,4 +1,3 @@
 package com.mjh.mathseducationapplication.model
 
-data class User(val userID: Int, val username: String) {
-}
+data class User(val userID: Int, val username: String) {}

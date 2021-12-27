@@ -10,6 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathsEducationApplication">
         <activity
+            android:name=".ViewAdminsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminListViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserListViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnswersListViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAnswersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionAndAnswerListViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddAnswerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewQuestionsAndAnswersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewQuestionsWithAnswersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddQuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminLoginActivity"
             android:exported="false" />
         <activity

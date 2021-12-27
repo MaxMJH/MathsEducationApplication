@@ -1,5 +1,6 @@
 package com.mjh.mathseducationapplication.model.table
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -36,5 +37,28 @@ class QuestionTable(context: Context, dbName: String, version: Int): DatabaseHel
         cursor.close()
 
         return questionsList
+    }
+
+    fun addQuestion(question: Question): Boolean {
+        val database: SQLiteDatabase = this.writableDatabase
+        val contentValues: ContentValues = ContentValues()
+
+        contentValues.put(this.columnQuestion, question.question)
+        contentValues.put(this.columnAnswerID, question.answerID)
+
+        val querySuccess: Long = database.insert(this.tableName, null, contentValues)
+        database.close()
+
+        return querySuccess != -1L
+    }
+
+    fun removeQuestion(question: Question): Boolean {
+        val database: SQLiteDatabase = this.writableDatabase
+
+        val querySuccess: Int = database.delete(this.tableName, "${this.columnQuestionID} = ${question.questionID}", null)
+
+        database.close()
+
+        return querySuccess == 1
     }
 }

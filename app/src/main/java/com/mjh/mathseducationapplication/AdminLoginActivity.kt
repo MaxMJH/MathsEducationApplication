@@ -29,12 +29,17 @@ class AdminLoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "This user is not an admin!", Toast.LENGTH_SHORT).show()
             } else {
                 val adminID: Int = this.adminTable.adminExists(adminUsername)
-                val admin: Admin = Admin(adminID, adminUsername, adminPassword, userID)
 
-                val intent: Intent = Intent(this, AdminSectionActivity::class.java).apply {
-                    putExtra("admin", admin)
+                if(this.adminTable.checkPassword(adminUsername, adminPassword)) {
+                    val admin: Admin = Admin(adminID, adminUsername, adminPassword, userID)
+
+                    val intent: Intent = Intent(this, AdminSectionActivity::class.java).apply {
+                        putExtra("admin", admin)
+                    }
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show()
                 }
-                startActivity(intent)
             }
         } else {
             Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show()

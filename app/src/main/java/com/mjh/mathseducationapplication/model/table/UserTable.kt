@@ -62,4 +62,24 @@ class UserTable(context: Context, dbName: String, version: Int): DatabaseHelper(
 
         return userID
     }
+
+    fun getUsers(): ArrayList<User> {
+        val database: SQLiteDatabase = this.readableDatabase
+        val sqlStatement: String = "SELECT * FROM \"${this.tableName}\""
+
+        val cursor: Cursor = database.rawQuery(sqlStatement, null)
+
+        val usersList: ArrayList<User> = ArrayList()
+
+        if(cursor.moveToFirst()) {
+            do {
+                usersList.add(User(cursor.getInt(0), cursor.getString(1)))
+            } while(cursor.moveToNext())
+        }
+
+        database.close()
+        cursor.close()
+
+        return usersList
+    }
 }

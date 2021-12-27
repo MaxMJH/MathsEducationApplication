@@ -1,4 +1,3 @@
 package com.mjh.mathseducationapplication.model
 
-data class Answer(val answerID: Int, val answer: String) {
-}
+data class Answer(var answerID: Int, val answer: String) {}

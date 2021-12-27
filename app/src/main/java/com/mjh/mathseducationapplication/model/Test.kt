@@ -8,6 +8,7 @@ data class Test(
     var answersPool: ArrayList<Answer> = ArrayList(),
     var currentQuestionCount: Int = 1) {
 
+    /*---- Methods ----*/
     fun populateQuestionsPool(allQuestions: ArrayList<Question>) {
         if(allQuestions.size == 0) {
             return
