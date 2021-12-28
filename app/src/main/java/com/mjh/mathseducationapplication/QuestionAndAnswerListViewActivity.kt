@@ -3,6 +3,11 @@ package com.mjh.mathseducationapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
+/**
+ * A class representing the [QuestionAndAnswerListViewActivity] controller.
+ *
+ * This class contains the list view that is used in [ViewQuestionsWithAnswersActivity]
+ */
 class QuestionAndAnswerListViewActivity : AppCompatActivity() {
     /*---- Overridden Methods ----*/
     override fun onCreate(savedInstanceState: Bundle?) {

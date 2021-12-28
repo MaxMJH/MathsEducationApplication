@@ -9,6 +9,12 @@ import androidx.core.view.children
 import com.mjh.mathseducationapplication.model.*
 import com.mjh.mathseducationapplication.model.table.*
 
+/**
+ * A class representing the [TestActivity] controller.
+ *
+ * This class provides the functionality of the [TestActivity] such as setting the view and
+ * button functionality.
+ */
 class TestActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var radioButtonAnswers: List<Answer>
@@ -23,13 +29,20 @@ class TestActivity : AppCompatActivity() {
     private lateinit var student: Student
 
     /*---- Methods ----*/
+    /**
+     * Sets the next question for the [TestActivity] view if there are any questions in the questions pool.
+     * Instead of creating separate views for each question, the text views' and radio buttons' values are
+     * changed. Each answer should be unique and randomly allocated apart from the correct answer.
+     */
     private fun nextQuestion() {
+        // Check to see if any questions are available.
         if(this.test.questionsPool.size >= 1) {
             this.resetView()
 
-            // Display question.
+            // Take the last question from the questions pool.
             this.currentQuestion = this.test.questionsPool[this.test.questionsPool.size - 1]
 
+            // Display question information.
             findViewById<TextView>(R.id.textViewCurrentQuestion).text = "${this.test.currentQuestionCount} / 14"
             findViewById<TextView>(R.id.textViewQuestion).text = this.currentQuestion.question
             findViewById<ImageView>(R.id.imageViewQuestionPicture).setImageResource(
@@ -71,32 +84,50 @@ class TestActivity : AppCompatActivity() {
             // Remove question.
             this.test.removeQuestion(currentQuestion)
 
-            // Increment current question text view.
             this.test.currentQuestionCount++
         } else {
-            // Should go to results page instead.
             this.calculateScore()
         }
     }
 
+    /**
+     * After the student has selected an answer, add the [StudentAttempt] to the StudentAttempt Table.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun submitAnswer(view: View) {
+        // Get the answer ID of the answer that the student has selected.
         val studentAnswerID: Int = this.radioButtonAnswers.filter { it.answer == this.selectedAnswer }[0].answerID
 
         this.studentAttemptTable.addAttempt(StudentAttempt(-1, this.test.testID, this.currentQuestion.questionID, studentAnswerID))
 
+        // Go to the next question.
         this.nextQuestion()
     }
 
+    /**
+     * Applied to each radio button which ensures an answer is selected before a student is able
+     * to submit to prevent any exceptions.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun answerSelect(view: View) {
         findViewById<Button>(R.id.buttonSubmit).isEnabled = true
         this.selectedAnswer = findViewById<RadioButton>(view.id).text.toString()
     }
 
+    /**
+     * Reset the answer selection and ensure that the submission button is disabled.
+     */
     private fun resetView() {
         findViewById<RadioGroup>(R.id.radioGroupAnswers).clearCheck()
         findViewById<Button>(R.id.buttonSubmit).isEnabled = false
     }
 
+    /**
+     * Calculates the score of the student's test by obtaining correct attempts. Once the score is
+     * calculated, the test that the student started is updated with the student's final score.
+     */
     private fun calculateScore() {
         val correctAttempts: Int = this.studentAttemptTable.getCorrectAttempts(this.test.testID)
 

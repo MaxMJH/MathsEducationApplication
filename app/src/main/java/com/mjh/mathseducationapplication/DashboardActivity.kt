@@ -10,6 +10,12 @@ import com.mjh.mathseducationapplication.model.Student
 import com.mjh.mathseducationapplication.model.table.AnswerTable
 import com.mjh.mathseducationapplication.model.table.QuestionTable
 
+/**
+ * A class representing the [DashboardActivity] controller.
+ *
+ * This class provides the functionality of the [DashboardActivity] such as setting the view and
+ * button functionality.
+ */
 class DashboardActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var student: Student
@@ -17,7 +23,13 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var answerTable: AnswerTable
 
     /*---- Methods ----*/
+    /**
+     * Sends the User to the [TestActivity] which starts a test.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun startTest(view: View) {
+        // Check if there are any questions or answers available.
         if(this.questionTable.getQuestions().size == 0 || this.answerTable.getAnswers().size == 0) {
             Toast.makeText(this, "No questions or answers available", Toast.LENGTH_SHORT).show()
         } else {
@@ -25,10 +37,16 @@ class DashboardActivity : AppCompatActivity() {
             val intent: Intent = Intent(this, TestActivity::class.java).apply {
                 putExtra("student", student)
             }
+
             startActivity(intent)
         }
     }
 
+    /**
+     * Sends the User to the [AdminLoginActivity] which allows an User to login as an Admin.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun startAdminSection(view: View) {
         // Start new intent that starts the admin section.
         val intent: Intent = Intent(this, AdminLoginActivity::class.java)

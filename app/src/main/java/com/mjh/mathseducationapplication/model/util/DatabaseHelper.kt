@@ -4,7 +4,17 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-open class DatabaseHelper(context: Context, dbName: String, version: Int): SQLiteOpenHelper(context, dbName, null, version) {
+/**
+ * A class representing the DatabaseHelper.
+ *
+ * This class provides the ability to create all tables needed for the programme.
+ *
+ * @constructor Extends SQLiteOpenHelper in order to create a link to a specified database.
+ */
+open class DatabaseHelper(
+    context: Context,
+    dbName: String,
+    version: Int): SQLiteOpenHelper(context, dbName, null, version) {
     /*---- Fields ----*/
     private val userTable: String = "CREATE TABLE \"User\" (" +
             "\"userID\" INTEGER NOT NULL UNIQUE, " +

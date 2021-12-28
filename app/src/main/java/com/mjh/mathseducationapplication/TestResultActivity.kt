@@ -7,11 +7,22 @@ import android.view.View
 import android.widget.TextView
 import com.mjh.mathseducationapplication.model.Student
 
+/**
+ * A class representing the [TestResultActivity] controller.
+ *
+ * This class provides the functionality of the [TestResultActivity] such as setting the view and
+ * button functionality.
+ */
 class TestResultActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var student: Student
 
     /*---- Methods ----*/
+    /**
+     * Sends the Student to the [DashboardActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun backToDashboard(view: View) {
         val intent: Intent = Intent(this, DashboardActivity::class.java).apply {
             putExtra("student", student)

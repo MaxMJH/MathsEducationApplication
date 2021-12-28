@@ -5,36 +5,84 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
+/**
+ * A class representing the [AdminSectionActivity] controller.
+ *
+ * This class provides the functionality of the [AdminSectionActivity] such as setting the view and
+ * button functionality.
+ */
 class AdminSectionActivity : AppCompatActivity() {
     /*---- Methods ----*/
+    /**
+     * Sends the Admin to the [AddQuestionActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun addQuestion(view: View) {
-        val intent: Intent = Intent(this, AddQuestionActivity::class.java)
-        startActivity(intent)
+        val addQuestionIntent: Intent = Intent(this, AddQuestionActivity::class.java).apply {
+            putExtra("admin", intent.getSerializableExtra("student"))
+        }
+        startActivity(addQuestionIntent)
     }
 
+    /**
+     * Sends the Admin to the [ViewQuestionsWithAnswersActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun viewQuestionsWithAnswers(view: View) {
-        val intent: Intent = Intent(this, ViewQuestionsWithAnswersActivity::class.java)
-        startActivity(intent)
+        val viewQuestionsWithAnswerIntent: Intent = Intent(this, ViewQuestionsWithAnswersActivity::class.java).apply {
+            putExtra("admin", intent.getSerializableExtra("student"))
+        }
+        startActivity(viewQuestionsWithAnswerIntent)
     }
 
+    /**
+     * Sends the Admin to the [AddAnswerActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun addAnswer(view: View) {
-        val intent: Intent = Intent(this, AddAnswerActivity::class.java)
-        startActivity(intent)
+        val addAnswerIntent: Intent = Intent(this, AddAnswerActivity::class.java).apply {
+            putExtra("admin", intent.getSerializableExtra("student"))
+        }
+        startActivity(addAnswerIntent)
     }
 
+    /**
+     * Sends the Admin to the [ViewAnswersActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun viewAnswers(view: View) {
-        val intent: Intent = Intent(this, ViewAnswersActivity::class.java)
-        startActivity(intent)
+        val viewAnswersIntent: Intent = Intent(this, ViewAnswersActivity::class.java).apply {
+            putExtra("admin", intent.getSerializableExtra("student"))
+        }
+        startActivity(viewAnswersIntent)
     }
 
+    /**
+     * Sends the Admin to the [UserActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun addAdmin(view: View) {
-        val intent: Intent = Intent(this, UserActivity::class.java)
-        startActivity(intent)
+        val addAdminIntent: Intent = Intent(this, UserActivity::class.java).apply {
+            putExtra("student", intent.getSerializableExtra("student"))
+        }
+        startActivity(addAdminIntent)
     }
 
+    /**
+     * Sends the Admin to the [ViewAdminsActivity]
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun viewAdmins(view: View) {
-        val intent: Intent = Intent(this, ViewAdminsActivity::class.java)
-        startActivity(intent)
+        val viewAdminsIntent: Intent = Intent(this, ViewAdminsActivity::class.java).apply {
+            putExtra("student", intent.getSerializableExtra("student"))
+        }
+        startActivity(viewAdminsIntent)
     }
 
     /*---- Overridden Methods ----*/

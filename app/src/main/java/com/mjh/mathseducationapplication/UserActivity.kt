@@ -1,5 +1,6 @@
 package com.mjh.mathseducationapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,12 @@ import com.mjh.mathseducationapplication.model.table.AdminTable
 import com.mjh.mathseducationapplication.model.table.UserTable
 import com.mjh.mathseducationapplication.model.util.UserAdapter
 
+/**
+ * A class representing the [UserActivity] controller.
+ *
+ * This class provides the functionality of the [UserActivity] such as setting the view and
+ * button functionality.
+ */
 class UserActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var userTable: UserTable
@@ -20,9 +27,16 @@ class UserActivity : AppCompatActivity() {
     private var selectedAnswer: User? = null
 
     /*---- Methods ----*/
+    /**
+     * Once the Admin has selected a User from the list view, they will then be able to make said
+     * user an Admin. It is essential that the Admin sets the User a password so they can login.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun makeAdmin(view: View) {
         val enteredPassword: String = findViewById<EditText>(R.id.editTextPassword).text.toString().trim()
 
+        // Check if a User has been selected.
         if(this.selectedAnswer != null) {
             if(enteredPassword.isNotEmpty()) {
                 val admin: Admin = Admin(-1, this.selectedAnswer!!.username, enteredPassword, this.selectedAnswer!!.userID)
@@ -49,6 +63,8 @@ class UserActivity : AppCompatActivity() {
 
         this.adapter = UserAdapter(applicationContext, users)
         findViewById<ListView>(R.id.listViewUsers).adapter = this.adapter
+
+        // On Click Listener which gets the clicked on User.
         findViewById<ListView>(R.id.listViewUsers).setOnItemClickListener { parent, view, position, id ->
             this.selectedAnswer = users[position]
         }

@@ -11,6 +11,12 @@ import com.mjh.mathseducationapplication.model.table.AnswerTable
 import com.mjh.mathseducationapplication.model.table.QuestionTable
 import com.mjh.mathseducationapplication.model.util.QuestionAnswerAdapter
 
+/**
+ * A class representing the [ViewQuestionsWithAnswersActivity] controller.
+ *
+ * This class provides the functionality of the [ViewQuestionsWithAnswersActivity] such as setting the view and
+ * button functionality.
+ */
 class ViewQuestionsWithAnswersActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var questionTable: QuestionTable
@@ -19,10 +25,17 @@ class ViewQuestionsWithAnswersActivity : AppCompatActivity() {
     private var selectedQuestion: Question? = null
 
     /*---- Methods ----*/
+    /**
+     * Removes the selected question from the Question Table.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun remove(view: View) {
+        // Check if the Admin has selected a question.
         if(this.selectedQuestion != null) {
             this.questionTable.removeQuestion(this.selectedQuestion!!)
 
+            // Update the list view.
             this.adapter.updateList(this.questionTable.getQuestions(), this.answerTable.getAnswers())
             this.adapter.notifyDataSetChanged()
 
@@ -45,6 +58,8 @@ class ViewQuestionsWithAnswersActivity : AppCompatActivity() {
 
         this.adapter = QuestionAnswerAdapter(applicationContext, questions, answers)
         findViewById<ListView>(R.id.listViewQuestionsAndAnswers).adapter = this.adapter
+
+        // On Click Listener which gets the clicked on Question.
         findViewById<ListView>(R.id.listViewQuestionsAndAnswers).setOnItemClickListener { parent, view, position, id ->
             this.selectedQuestion = questions[position]
         }

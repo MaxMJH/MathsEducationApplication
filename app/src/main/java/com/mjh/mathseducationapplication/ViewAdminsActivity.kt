@@ -6,12 +6,15 @@ import android.view.View
 import android.widget.ListView
 import android.widget.Toast
 import com.mjh.mathseducationapplication.model.Admin
-import com.mjh.mathseducationapplication.model.Answer
 import com.mjh.mathseducationapplication.model.table.AdminTable
-import com.mjh.mathseducationapplication.model.table.AnswerTable
 import com.mjh.mathseducationapplication.model.util.AdminAdapter
-import com.mjh.mathseducationapplication.model.util.AnswerAdapter
 
+/**
+ * A class representing the [ViewAdminsActivity] controller.
+ *
+ * This class provides the functionality of the [ViewAdminsActivity] such as setting the view and
+ * button functionality.
+ */
 class ViewAdminsActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var adminTable: AdminTable
@@ -19,8 +22,15 @@ class ViewAdminsActivity : AppCompatActivity() {
     private var selectedAnswer: Admin? = null
 
     /*---- Methods ----*/
+    /**
+     * Once the Admin has selected an Admin from the list view, they will then be able to remove said
+     * Admin.
+     *
+     * @param view The area responsible for drawing and event handling.
+     */
     fun removeAdmin(view: View) {
-        if(this.selectedAnswer != null) {
+        // Check that the user has selected an admin.
+        if(this.selectedAnswer != null || this.selectedAnswer?.adminID == 1) {
             this.adminTable.removeAdmin(this.selectedAnswer!!)
 
             this.adapter.updateList(this.adminTable.getAdmins())
@@ -43,6 +53,8 @@ class ViewAdminsActivity : AppCompatActivity() {
 
         this.adapter = AdminAdapter(applicationContext, admins)
         findViewById<ListView>(R.id.listViewAdmins).adapter = this.adapter
+
+        // On Click Listener which gets the clicked on Admin.
         findViewById<ListView>(R.id.listViewAdmins).setOnItemClickListener { parent, view, position, id ->
             this.selectedAnswer = admins[position]
         }
