@@ -14,9 +14,6 @@ import com.mjh.mathseducationapplication.model.Student
  * button functionality.
  */
 class TestResultActivity : AppCompatActivity() {
-    /*---- Fields ----*/
-    private lateinit var student: Student
-
     /*---- Methods ----*/
     /**
      * Sends the Student to the [DashboardActivity]
@@ -24,11 +21,11 @@ class TestResultActivity : AppCompatActivity() {
      * @param view The area responsible for drawing and event handling.
      */
     fun backToDashboard(view: View) {
-        val intent: Intent = Intent(this, DashboardActivity::class.java).apply {
-            putExtra("student", student)
+        val dashboardActivityIntent: Intent = Intent(this, DashboardActivity::class.java).apply {
+            putExtra("student", intent.getSerializableExtra("student"))
         }
 
-        startActivity(intent)
+        startActivity(dashboardActivityIntent)
     }
 
     /*---- Overridden Methods ----*/
@@ -36,7 +33,7 @@ class TestResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
 
-        this.student = intent.getSerializableExtra("student") as Student
+        val student: Student = intent.getSerializableExtra("student") as Student
 
         findViewById<TextView>(R.id.textViewStudentName).text = student.studentName
         findViewById<TextView>(R.id.textViewStudentScore).text = "${"%.2f".format(intent.getDoubleExtra("score", 0.0)).toString()}%"

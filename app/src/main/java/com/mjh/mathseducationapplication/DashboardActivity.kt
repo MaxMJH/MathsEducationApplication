@@ -18,7 +18,6 @@ import com.mjh.mathseducationapplication.model.table.QuestionTable
  */
 class DashboardActivity : AppCompatActivity() {
     /*---- Fields ----*/
-    private lateinit var student: Student
     private lateinit var questionTable: QuestionTable
     private lateinit var answerTable: AnswerTable
 
@@ -34,11 +33,11 @@ class DashboardActivity : AppCompatActivity() {
             Toast.makeText(this, "No questions or answers available", Toast.LENGTH_SHORT).show()
         } else {
             // Start new intent that starts the test.
-            val intent: Intent = Intent(this, TestActivity::class.java).apply {
-                putExtra("student", student)
+            val testActivityIntent: Intent = Intent(this, TestActivity::class.java).apply {
+                putExtra("student", intent.getSerializableExtra("student"))
             }
 
-            startActivity(intent)
+            startActivity(testActivityIntent)
         }
     }
 
@@ -58,8 +57,8 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        this.student = intent.getSerializableExtra("student") as Student
-        findViewById<TextView>(R.id.textViewStudentName).text = this.student.studentName
+        val student: Student = intent.getSerializableExtra("student") as Student
+        findViewById<TextView>(R.id.textViewStudentName).text = student.studentName
 
         this.questionTable = QuestionTable(this, "MathsEducation.db", 1)
         this.answerTable = AnswerTable(this, "MathsEducation.db", 1)
