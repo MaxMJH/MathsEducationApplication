@@ -21,7 +21,7 @@ class TestTable(
     /*---- Fields ----*/
     private val tableName: String = "Test"
     private val columnTestID: String = "testID"
-    private val columnStudentID: String = "studentID"
+    private val columnUserID: String = "userID"
     private val columnResult: String = "result"
 
     /*---- Methods ----*/
@@ -36,7 +36,7 @@ class TestTable(
         val database: SQLiteDatabase = this.readableDatabase
         val contentValues: ContentValues = ContentValues()
 
-        contentValues.put(this.columnStudentID, test.studentID)
+        contentValues.put(this.columnUserID, test.userID)
         contentValues.put(this.columnResult, -1.0)
 
         val querySuccess: Long = database.insert(this.tableName, null, contentValues)

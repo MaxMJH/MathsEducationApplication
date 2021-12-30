@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathsEducationApplication">
         <activity
+            android:name=".TEST"
+            android:exported="false" />
+        <activity
             android:name=".ViewAdminsActivity"
             android:exported="false" />
         <activity

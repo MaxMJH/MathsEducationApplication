@@ -26,6 +26,7 @@ open class DatabaseHelper(
             "\"adminUsername\" TEXT NOT NULL, " +
             "\"adminPassword\" TEXT NOT NULL, " +
             "\"userID\" INTEGER NOT NULL UNIQUE, " +
+            "FOREIGN KEY(\"userID\") REFERENCES \"User\"(\"userID\") ON DELETE CASCADE, " +
             "PRIMARY KEY(\"adminID\" AUTOINCREMENT));"
 
     private val studentTable: String = "CREATE TABLE \"Student\" (" +
@@ -50,9 +51,9 @@ open class DatabaseHelper(
 
     private val testTable: String = "CREATE TABLE \"Test\" (" +
             "\"testID\" INTEGER UNIQUE, " +
-            "\"studentID\" INTEGER NOT NULL, " +
+            "\"userID\" INTEGER NOT NULL, " +
             "\"result\" REAL NOT NULL, " +
-            "FOREIGN KEY(\"studentID\") REFERENCES \"Student\" ON DELETE CASCADE, " +
+            "FOREIGN KEY(\"userID\") REFERENCES \"User\"(\"userID\") ON DELETE CASCADE, " +
             "PRIMARY KEY(\"testID\" AUTOINCREMENT));"
 
     private val studentAttempt: String = "CREATE TABLE \"StudentAttempt\" (" +

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.mjh.mathseducationapplication.model.Student
+import com.mjh.mathseducationapplication.model.User
 
 /**
  * A class representing the [TestResultActivity] controller.
@@ -21,8 +22,11 @@ class TestResultActivity : AppCompatActivity() {
      * @param view The area responsible for drawing and event handling.
      */
     fun backToDashboard(view: View) {
+        val student: Student = intent.getSerializableExtra("student") as Student
+        val user: User = User(student.userID, student.studentName)
+
         val dashboardActivityIntent: Intent = Intent(this, DashboardActivity::class.java).apply {
-            putExtra("student", intent.getSerializableExtra("student"))
+            putExtra("user", user)
         }
 
         startActivity(dashboardActivityIntent)

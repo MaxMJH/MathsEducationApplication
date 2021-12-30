@@ -20,7 +20,7 @@ class AdminSectionActivity : AppCompatActivity() {
      */
     fun addQuestion(view: View) {
         val addQuestionIntent: Intent = Intent(this, AddQuestionActivity::class.java).apply {
-            putExtra("admin", intent.getSerializableExtra("student"))
+            putExtra("admin", intent.getSerializableExtra("admin"))
         }
         startActivity(addQuestionIntent)
     }
@@ -32,7 +32,7 @@ class AdminSectionActivity : AppCompatActivity() {
      */
     fun viewQuestionsWithAnswers(view: View) {
         val viewQuestionsWithAnswerIntent: Intent = Intent(this, ViewQuestionsWithAnswersActivity::class.java).apply {
-            putExtra("admin", intent.getSerializableExtra("student"))
+            putExtra("admin", intent.getSerializableExtra("admin"))
         }
         startActivity(viewQuestionsWithAnswerIntent)
     }
@@ -44,7 +44,7 @@ class AdminSectionActivity : AppCompatActivity() {
      */
     fun addAnswer(view: View) {
         val addAnswerIntent: Intent = Intent(this, AddAnswerActivity::class.java).apply {
-            putExtra("admin", intent.getSerializableExtra("student"))
+            putExtra("admin", intent.getSerializableExtra("admin"))
         }
         startActivity(addAnswerIntent)
     }
@@ -56,7 +56,7 @@ class AdminSectionActivity : AppCompatActivity() {
      */
     fun viewAnswers(view: View) {
         val viewAnswersIntent: Intent = Intent(this, ViewAnswersActivity::class.java).apply {
-            putExtra("admin", intent.getSerializableExtra("student"))
+            putExtra("admin", intent.getSerializableExtra("admin"))
         }
         startActivity(viewAnswersIntent)
     }
@@ -68,7 +68,7 @@ class AdminSectionActivity : AppCompatActivity() {
      */
     fun addAdmin(view: View) {
         val addAdminIntent: Intent = Intent(this, UserActivity::class.java).apply {
-            putExtra("student", intent.getSerializableExtra("student"))
+            putExtra("admin", intent.getSerializableExtra("admin"))
         }
         startActivity(addAdminIntent)
     }
@@ -80,7 +80,7 @@ class AdminSectionActivity : AppCompatActivity() {
      */
     fun viewAdmins(view: View) {
         val viewAdminsIntent: Intent = Intent(this, ViewAdminsActivity::class.java).apply {
-            putExtra("student", intent.getSerializableExtra("student"))
+            putExtra("admin", intent.getSerializableExtra("admin"))
         }
         startActivity(viewAdminsIntent)
     }

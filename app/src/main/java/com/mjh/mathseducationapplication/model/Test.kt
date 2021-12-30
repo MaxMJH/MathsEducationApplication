@@ -16,7 +16,7 @@ package com.mjh.mathseducationapplication.model
  */
 data class Test(
     var testID: Int,
-    val studentID: Int,
+    val userID: Int,
     val result: Double,
     var questionsPool: ArrayList<Question> = ArrayList(),
     var answersPool: ArrayList<Answer> = ArrayList(),

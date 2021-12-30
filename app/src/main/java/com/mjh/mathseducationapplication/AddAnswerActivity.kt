@@ -37,7 +37,7 @@ class AddAnswerActivity : AppCompatActivity() {
 
             // After the Answer has been added, go back to the admin section.
             val adminSectionIntent: Intent = Intent(this, AdminSectionActivity::class.java).apply {
-                putExtra("student", intent.getSerializableExtra("student"))
+                putExtra("admin", intent.getSerializableExtra("admin"))
             }
             startActivity(adminSectionIntent)
         }

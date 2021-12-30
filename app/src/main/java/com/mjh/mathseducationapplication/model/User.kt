@@ -1,5 +1,7 @@
 package com.mjh.mathseducationapplication.model
 
+import java.io.Serializable
+
 /**
  * A class representing the User model.
  *
@@ -12,4 +14,4 @@ package com.mjh.mathseducationapplication.model
  */
 data class User(
     val userID: Int,
-    val username: String) {}
+    val username: String) : Serializable {}

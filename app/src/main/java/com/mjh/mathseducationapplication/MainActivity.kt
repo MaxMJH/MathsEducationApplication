@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import com.mjh.mathseducationapplication.model.Student
 import com.mjh.mathseducationapplication.model.User
-import com.mjh.mathseducationapplication.model.table.StudentTable
 import com.mjh.mathseducationapplication.model.table.UserTable
 import com.mjh.mathseducationapplication.model.util.Validate
 
@@ -21,7 +19,6 @@ import com.mjh.mathseducationapplication.model.util.Validate
 class MainActivity : AppCompatActivity() {
     /*---- Fields ----*/
     private lateinit var userTable: UserTable
-    private lateinit var studentTable: StudentTable
 
     /*---- Methods ----*/
     /**
@@ -32,26 +29,22 @@ class MainActivity : AppCompatActivity() {
      */
     fun start(view: View) {
         val studentName: String = findViewById<EditText>(R.id.editTextStudentName).text.toString()
-        val student: Student?
+        val user: User?
 
         // Check to see if the entered name is valid.
         if(Validate.validateName(studentName)) {
             val userID: Int = this.userTable.userExists(studentName)
 
-            // If the student does not exist.
+            // If the user does not exist.
             if(userID == -1) {
-                val user: User = User(this.userTable.getNextUserID(), studentName)
+                user = User(this.userTable.getNextUserID(), studentName)
                 this.userTable.addUser(user)
-
-                student = Student(this.studentTable.getNextStudentID(), studentName, user.userID)
-                this.studentTable.addStudent(student)
             } else {
-                val studentID = this.studentTable.studentExists(studentName)
-                student = Student(studentID, studentName, userID)
+                user = User(userID, studentName)
             }
 
             val intent: Intent = Intent(this, DashboardActivity::class.java).apply {
-                putExtra("student", student)
+                putExtra("user", user)
             }
             startActivity(intent)
         } else {
@@ -64,6 +57,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         this.userTable = UserTable(this, "MathsEducation.db", 1)
-        this.studentTable = StudentTable(this, "MathsEducation.db", 1)
     }
 }
