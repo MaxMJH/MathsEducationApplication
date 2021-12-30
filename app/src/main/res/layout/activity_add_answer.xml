@@ -5,72 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonStart"
-        android:layout_width="220dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="96dp"
-        android:background="@drawable/button"
-        android:onClick="start"
-        android:text="@string/buttonStart"
-        android:textColor="#424242"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        tools:ignore="TextContrastCheck" />
+    tools:context=".AddAnswerActivity">
 
     <TextView
-        android:id="@+id/textViewPleaseEnterYourName"
-        android:layout_width="244dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="135dp"
-        android:background="@android:color/transparent"
-        android:paddingLeft="6dp"
-        android:paddingBottom="10dp"
-        android:text="@string/textViewPleaseEnterYourName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEnterYourName" />
-
-    <TextView
-        android:id="@+id/textViewEnterYourName"
-        android:layout_width="257dp"
+        android:id="@+id/textViewEnterAnswer"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="225dp"
-        android:layout_marginEnd="122dp"
+        android:layout_marginTop="247dp"
+        android:layout_marginEnd="208dp"
         android:paddingLeft="5dp"
         android:paddingTop="7dp"
-        android:text="@string/textViewEnterYourName"
+        android:text="@string/textViewEnterAnswer"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textViewEnterAnswerInfo"
+        android:layout_width="344dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="35dp"
+        android:background="@android:color/transparent"
+        android:paddingLeft="6dp"
+        android:paddingBottom="10dp"
+        android:text="@string/textViewEnterAnswerInfo"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEnterAnswer" />
+
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/relativeLayoutAnswer"
         android:layout_width="346dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="33dp"
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPleaseEnterYourName">
+        app:layout_constraintTop_toBottomOf="@+id/textViewEnterAnswerInfo">
 
         <EditText
-            android:id="@+id/editTextStudentName"
+            android:id="@+id/editTextAnswer"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/edit_text"
@@ -80,13 +63,28 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textViewName"
+            android:id="@+id/textViewListViewAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="14dp"
             android:paddingBottom="5dp"
-            android:text="@string/textViewName"
+            android:text="@string/textViewAnswer"
             android:textColor="#616161" />
+
     </RelativeLayout>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonAddAnswer"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="141dp"
+        android:layout_marginEnd="142dp"
+        android:background="@drawable/button"
+        android:onClick="addAnswer"
+        android:text="@string/buttonAddAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayoutAnswer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

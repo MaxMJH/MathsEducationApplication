@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".TestResultActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="31dp"
+        android:text="@string/textViewCongratulations"
+        android:textColor="#424242"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewStudentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="98dp"
+        android:text="Student Name"
+        android:textColor="#424242"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textViewYouScored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginEnd="116dp"
+        android:text="@string/textViewYouScored"
+        android:textColor="#424242"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStudentName" />
+
+    <TextView
+        android:id="@+id/textViewStudentScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="137dp"
+        android:text="TextView"
+        android:textColor="#424242"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewYouScored" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonBackToDashboard"
+        android:layout_width="168dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="122dp"
+        android:background="@drawable/button"
+        android:onClick="backToDashboard"
+        android:text="@string/buttonBackToDashboard"
+        android:textColor="#424242"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStudentScore" />
+</androidx.constraintlayout.widget.ConstraintLayout>
