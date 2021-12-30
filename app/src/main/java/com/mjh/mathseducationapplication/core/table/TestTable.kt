@@ -1,11 +1,12 @@
-package com.mjh.mathseducationapplication.model.table
+package com.mjh.mathseducationapplication.core.table
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import com.mjh.mathseducationapplication.model.User
 import com.mjh.mathseducationapplication.model.Test
-import com.mjh.mathseducationapplication.model.util.DatabaseHelper
+import com.mjh.mathseducationapplication.core.util.DatabaseHelper
 
 /**
  * A class representing the Test table.
@@ -48,7 +49,7 @@ class TestTable(
     /**
      * Aims to return the last entry added to the Test Table.
      *
-     * @return A integer value indicating the last test ID of the Test Table, or 1 if no entries exist within the Test Table.
+     * @return An integer value indicating the last test ID of the Test Table, or 1 if no entries exist within the Test Table.
      */
     fun getLastTestID(): Int {
         val database: SQLiteDatabase = this.readableDatabase
@@ -85,5 +86,49 @@ class TestTable(
 
         database.close()
         return querySuccess == 1
+    }
+
+    /**
+     * Aims to return the specified [User]'s test results.
+     *
+     * @param userID A specified value representing a [User]'s ID.
+     * @return An Array List of parameter type [Test] containing all stored information about each [Test] within the Test Table.
+     */
+    fun getUserTestResults(userID: Int): ArrayList<Test> {
+        val database: SQLiteDatabase = this.readableDatabase
+        // Statement that aims to provide a student's test results.
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnTestID}\", \"${this.tableName}\".\"${this.columnResult}\" FROM \"${this.tableName}\" WHERE \"${this.tableName}\".\"${this.columnUserID}\" = $userID;"
+
+        val cursor: Cursor = database.rawQuery(sqlStatement, null)
+
+        val testsList: ArrayList<Test> = ArrayList()
+
+        if(cursor.moveToFirst()) {
+            do {
+                // In order to add the first result from the cursor as well as others, a do-while loop will be used.
+                testsList.add(Test(cursor.getInt(0), userID, cursor.getDouble(1)))
+            } while(cursor.moveToNext())
+        }
+
+        database.close()
+        cursor.close()
+
+        return testsList
+    }
+
+    /**
+     * Aims to remove all tests that have a result of -1. A test would have the result of -1 if a student
+     * failed to finish the entire test.
+     *
+     * @return A boolean value that determines whether or not tests with a result of -1 have been removed or not.
+     */
+    fun removeIncompleteTests(): Boolean {
+        val database: SQLiteDatabase = this.writableDatabase
+
+        val querySuccess: Int = database.delete(this.tableName, "\"${this.tableName}\".\"${this.columnResult}\" = -1", null)
+
+        database.close()
+
+        return querySuccess >= 1
     }
 }

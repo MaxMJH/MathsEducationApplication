@@ -7,9 +7,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.mjh.mathseducationapplication.model.Admin
-import com.mjh.mathseducationapplication.model.table.AdminTable
-import com.mjh.mathseducationapplication.model.table.UserTable
-import com.mjh.mathseducationapplication.model.util.Validate
+import com.mjh.mathseducationapplication.core.table.AdminTable
+import com.mjh.mathseducationapplication.core.table.UserTable
+import com.mjh.mathseducationapplication.core.util.Validate
 
 /**
  * A class representing the [AdminLoginActivity] controller.

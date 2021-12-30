@@ -1,4 +1,4 @@
-package com.mjh.mathseducationapplication.model.util
+package com.mjh.mathseducationapplication.core.util
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -40,6 +40,7 @@ class QuestionAnswerAdapter(
         this.answers = answers
     }
 
+    /*---- Overridden Methods ----*/
     /**
      * Returns the size of list [questions].
      *

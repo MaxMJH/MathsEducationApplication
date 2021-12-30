@@ -1,6 +1,5 @@
 package com.mjh.mathseducationapplication
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,9 +8,10 @@ import android.widget.ListView
 import android.widget.Toast
 import com.mjh.mathseducationapplication.model.Admin
 import com.mjh.mathseducationapplication.model.User
-import com.mjh.mathseducationapplication.model.table.AdminTable
-import com.mjh.mathseducationapplication.model.table.UserTable
-import com.mjh.mathseducationapplication.model.util.UserAdapter
+import com.mjh.mathseducationapplication.core.table.AdminTable
+import com.mjh.mathseducationapplication.core.table.UserTable
+import com.mjh.mathseducationapplication.core.util.UserAdapter
+import com.mjh.mathseducationapplication.core.util.Validate
 
 /**
  * A class representing the [UserActivity] controller.
@@ -38,13 +38,16 @@ class UserActivity : AppCompatActivity() {
 
         // Check if a User has been selected.
         if(this.selectedAnswer != null) {
-            if(enteredPassword.isNotEmpty()) {
+            if(enteredPassword.isNotEmpty() && Validate.validatePassword(enteredPassword)) {
                 val admin: Admin = Admin(-1, this.selectedAnswer!!.username, enteredPassword, this.selectedAnswer!!.userID)
                 this.adminTable.addAdmin(admin)
 
+                this.adapter.updateList(this.userTable.getUsers().filter { !this.adminTable.adminExists(it.userID) })
+                this.adapter.notifyDataSetChanged()
+
                 this.selectedAnswer = null
             } else {
-                Toast.makeText(this, "Make sure you have selected a user and set a password!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Make sure you have set a valid password!", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(this, "Make sure you have selected a user and set a password!", Toast.LENGTH_SHORT).show()
@@ -59,7 +62,9 @@ class UserActivity : AppCompatActivity() {
         this.userTable = UserTable(this, "MathsEducation.db", 1)
         this.adminTable = AdminTable(this, "MathsEducation.db", 1)
 
-        val users: List<User> = this.userTable.getUsers()
+        val admin: Admin = intent.getSerializableExtra("admin") as Admin
+
+        val users: List<User> = this.userTable.getUsers().filter { !this.adminTable.adminExists(it.userID) }
 
         this.adapter = UserAdapter(applicationContext, users)
         findViewById<ListView>(R.id.listViewUsers).adapter = this.adapter

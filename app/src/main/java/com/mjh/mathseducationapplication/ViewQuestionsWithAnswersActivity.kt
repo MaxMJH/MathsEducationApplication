@@ -7,9 +7,9 @@ import android.widget.ListView
 import android.widget.Toast
 import com.mjh.mathseducationapplication.model.Answer
 import com.mjh.mathseducationapplication.model.Question
-import com.mjh.mathseducationapplication.model.table.AnswerTable
-import com.mjh.mathseducationapplication.model.table.QuestionTable
-import com.mjh.mathseducationapplication.model.util.QuestionAnswerAdapter
+import com.mjh.mathseducationapplication.core.table.AnswerTable
+import com.mjh.mathseducationapplication.core.table.QuestionTable
+import com.mjh.mathseducationapplication.core.util.QuestionAnswerAdapter
 
 /**
  * A class representing the [ViewQuestionsWithAnswersActivity] controller.

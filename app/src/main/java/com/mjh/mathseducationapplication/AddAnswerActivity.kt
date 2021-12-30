@@ -7,7 +7,8 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.mjh.mathseducationapplication.model.Answer
-import com.mjh.mathseducationapplication.model.table.AnswerTable
+import com.mjh.mathseducationapplication.core.table.AnswerTable
+import com.mjh.mathseducationapplication.core.util.Validate
 
 /**
  * A class representing the [AddAnswerActivity] controller.
@@ -28,8 +29,8 @@ class AddAnswerActivity : AppCompatActivity() {
     fun addAnswer(view: View) {
         val enteredAnswer: String = findViewById<EditText>(R.id.editTextAnswer).text.toString().trim()
 
-        if(enteredAnswer.isEmpty()) {
-            Toast.makeText(this, "All boxes must be filled!", Toast.LENGTH_SHORT).show()
+        if(enteredAnswer.isEmpty() && !Validate.validateAnswer(enteredAnswer)) {
+            Toast.makeText(this, "All boxes must be filled or valid!", Toast.LENGTH_SHORT).show()
         } else {
             // Create an Answer with the entered answer and add it to the Answer Table.
             val answer: Answer = Answer(-1, enteredAnswer)

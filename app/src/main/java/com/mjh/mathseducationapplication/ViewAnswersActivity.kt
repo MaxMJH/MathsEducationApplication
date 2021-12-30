@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ListView
 import android.widget.Toast
+import com.mjh.mathseducationapplication.R
 import com.mjh.mathseducationapplication.model.Answer
-import com.mjh.mathseducationapplication.model.table.AnswerTable
-import com.mjh.mathseducationapplication.model.util.AnswerAdapter
+import com.mjh.mathseducationapplication.core.table.AnswerTable
+import com.mjh.mathseducationapplication.core.util.AnswerAdapter
 
 /**
  * A class representing the [ViewAnswersActivity] controller.

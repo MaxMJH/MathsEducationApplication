@@ -6,11 +6,20 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isInvisible
+import com.anychart.AnyChart
+import com.anychart.AnyChartView
+import com.anychart.chart.common.dataentry.DataEntry
+import com.anychart.chart.common.dataentry.ValueDataEntry
+import com.anychart.charts.Cartesian
+import com.anychart.core.cartesian.series.Area
+import com.anychart.enums.MarkerType
 import com.mjh.mathseducationapplication.model.Student
 import com.mjh.mathseducationapplication.model.User
-import com.mjh.mathseducationapplication.model.table.AnswerTable
-import com.mjh.mathseducationapplication.model.table.QuestionTable
-import com.mjh.mathseducationapplication.model.table.StudentTable
+import com.mjh.mathseducationapplication.core.table.AnswerTable
+import com.mjh.mathseducationapplication.core.table.QuestionTable
+import com.mjh.mathseducationapplication.core.table.StudentTable
+import com.mjh.mathseducationapplication.core.table.TestTable
 
 /**
  * A class representing the [DashboardActivity] controller.
@@ -23,6 +32,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var questionTable: QuestionTable
     private lateinit var answerTable: AnswerTable
     private lateinit var studentTable: StudentTable
+    private lateinit var testTable: TestTable
 
     /*---- Methods ----*/
     /**
@@ -68,6 +78,42 @@ class DashboardActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    /**
+     * Creates an area chart that contains the student's test results, if there are any available.
+     * If there are no results, then a text view will be displayed stating such.
+     */
+    private fun createAreaChart() {
+        // Code influenced and based off the example code provided by AnyChart.
+        // Original code available at https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/AreaChartActivity.java
+        val areaChart: Cartesian? = AnyChart.area()
+
+        areaChart?.title("Your Results")
+
+        val user: User = intent.getSerializableExtra("user") as User
+
+        // AreaChart requires the data to be of type DataEntry.
+        val userResults: ArrayList<DataEntry> = ArrayList()
+        this.testTable.getUserTestResults(user.userID).map { ValueDataEntry(it.testID, it.result) }.forEach { userResults.add(it) }
+
+        if(userResults.isEmpty()) {
+            findViewById<TextView>(R.id.textViewGraphError).isInvisible = false
+        } else {
+            // Create the actual 'area' of the graph - student test results.
+            val testResultArea: Area? = areaChart?.area(userResults)
+            testResultArea?.name("Your Results")
+            testResultArea?.fill("#F19B1A", 0.5)
+            testResultArea?.stroke("2 #F19B1A")
+            testResultArea?.markers()?.enabled(true)
+            testResultArea?.markers()?.type(MarkerType.CIRCLE)?.size(4)?.stroke("1.5 #fff")
+            testResultArea?.markers()?.zIndex(100)
+
+            areaChart?.xAxis(0)?.title("Test ID")
+            areaChart?.yAxis(0)?.title("Your Results")
+
+            findViewById<AnyChartView>(R.id.areaChartResults).setChart(areaChart)
+        }
+    }
+
     /*---- Overridden Methods ----*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,9 +121,17 @@ class DashboardActivity : AppCompatActivity() {
 
         val user: User = intent.getSerializableExtra("user") as User
         findViewById<TextView>(R.id.textViewStudentName).text = user.username
+        findViewById<TextView>(R.id.textViewGraphError).isInvisible = true
 
         this.questionTable = QuestionTable(this, "MathsEducation.db", 1)
         this.answerTable = AnswerTable(this, "MathsEducation.db", 1)
         this.studentTable = StudentTable(this, "MathsEducation.db", 1)
+        this.testTable = TestTable(this, "MathsEducation.db", 1)
+
+        // Remove any tests from the database if they have a result of -1.
+        this.testTable.removeIncompleteTests()
+
+        // Then create the chart.
+        this.createAreaChart()
     }
 }

@@ -1,4 +1,4 @@
-package com.mjh.mathseducationapplication.model.util
+package com.mjh.mathseducationapplication.core.util
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -26,6 +26,17 @@ class UserAdapter(
 
     /*---- Methods ----*/
     /**
+     * Updates the List containing [User]s with a new specified list. Usually used in conjunction with
+     * [BaseAdapter.notifyDataSetChanged].
+     *
+     * @param users List of type [User] that contains users from the User table.
+     */
+    fun updateList(users: List<User>) {
+        this.users = users
+    }
+
+    /*---- Overridden Methods ----*/
+    /**
      * Returns the size of list [users].
      *
      * @return An integer value which represents the size of the list [users].
@@ -37,7 +48,7 @@ class UserAdapter(
     /**
      * Returns an [Any] at a specified index.
      *
-     * @return An [Any] from the list [questions].
+     * @return An [Any] from the list [users].
      */
     override fun getItem(position: Int): Any {
         return this.users[position]

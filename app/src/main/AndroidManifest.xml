@@ -10,56 +10,65 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathsEducationApplication">
         <activity
-            android:name=".TEST"
-            android:exported="false" />
-        <activity
             android:name=".ViewAdminsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".AdminListViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".UserListViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".UserActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".AnswersListViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".ViewAnswersActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".QuestionAndAnswerListViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".AddAnswerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ViewQuestionsAndAnswersActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".ViewQuestionsWithAnswersActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".AddQuestionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminSectionActivity" />
         <activity
             android:name=".AdminLoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".AdminSectionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".AdminLoginActivity" />
         <activity
             android:name=".TestResultActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".TestActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".DashboardActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -70,5 +79,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

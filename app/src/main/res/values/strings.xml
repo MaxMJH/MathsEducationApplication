@@ -43,4 +43,5 @@
     <string name="textViewPassword">Password</string>
     <string name="buttonMakeAdmin">Make Admin</string>
     <string name="textViewAdmins">Admins</string>
+    <string name="textViewGraphError">This graph is empty, complete a test to fill it!</string>
 </resources>

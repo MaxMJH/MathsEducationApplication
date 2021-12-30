@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.core.view.children
 import com.mjh.mathseducationapplication.model.*
-import com.mjh.mathseducationapplication.model.table.*
+import com.mjh.mathseducationapplication.core.table.*
 
 /**
  * A class representing the [TestActivity] controller.

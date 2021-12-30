@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ListView
 import android.widget.Toast
+import com.mjh.mathseducationapplication.R
 import com.mjh.mathseducationapplication.model.Admin
-import com.mjh.mathseducationapplication.model.table.AdminTable
-import com.mjh.mathseducationapplication.model.util.AdminAdapter
+import com.mjh.mathseducationapplication.core.table.AdminTable
+import com.mjh.mathseducationapplication.core.util.AdminAdapter
 
 /**
  * A class representing the [ViewAdminsActivity] controller.

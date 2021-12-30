@@ -1,4 +1,4 @@
-package com.mjh.mathseducationapplication.model.util
+package com.mjh.mathseducationapplication.core.util
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -35,6 +35,7 @@ class AdminAdapter(
         this.admins = admins
     }
 
+    /*---- Overridden Methods ----*/
     /**
      * Returns the size of list [admins].
      *

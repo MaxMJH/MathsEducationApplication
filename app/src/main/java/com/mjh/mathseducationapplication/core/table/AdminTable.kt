@@ -1,11 +1,11 @@
-package com.mjh.mathseducationapplication.model.table
+package com.mjh.mathseducationapplication.core.table
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.mjh.mathseducationapplication.model.Admin
-import com.mjh.mathseducationapplication.model.util.DatabaseHelper
+import com.mjh.mathseducationapplication.core.util.DatabaseHelper
 
 /**
  * A class representing the Admin table.
@@ -70,6 +70,31 @@ class AdminTable(
         cursor.close()
 
         return adminID
+    }
+
+    /**
+     * Checks to see if an admin specified by their user ID is in the Admin Table.
+     *
+     * @param userID A potential user ID of an admin.
+     * @return A boolean value that determines whether or not the specified user ID is in the Admin Table or not.
+     */
+    fun adminExists(userID: Int): Boolean {
+        val database: SQLiteDatabase = this.readableDatabase
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminID}\" FROM \"${this.tableName}\" WHERE '$userID' = \"${this.tableName}\".\"${this.columnUserID}\";"
+
+        val cursor: Cursor = database.rawQuery(sqlStatement, null)
+
+        var isAdmin: Boolean = false
+
+        // Cursor should only return one row due to the nature of unique user IDs.
+        if(cursor.moveToFirst()) {
+            isAdmin = true
+        }
+
+        database.close()
+        cursor.close()
+
+        return isAdmin
     }
 
     /**

@@ -1,11 +1,11 @@
-package com.mjh.mathseducationapplication.model.table
+package com.mjh.mathseducationapplication.core.table
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.mjh.mathseducationapplication.model.Student
-import com.mjh.mathseducationapplication.model.util.DatabaseHelper
+import com.mjh.mathseducationapplication.core.util.DatabaseHelper
 
 /**
  * A class representing the Student table.
