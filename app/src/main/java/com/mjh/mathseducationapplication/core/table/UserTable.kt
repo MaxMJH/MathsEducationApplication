@@ -52,7 +52,7 @@ class UserTable(
      */
     fun userExists(studentName: String): Int {
         val database: SQLiteDatabase = this.readableDatabase
-        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnUserID}\" FROM \"${this.tableName}\" WHERE '$studentName' = \"${this.tableName}\".\"${this.columnUsername}\";"
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnUserID}\" FROM \"${this.tableName}\" WHERE \"${this.tableName}\".\"${this.columnUsername}\" = '$studentName' COLLATE NOCASE;"
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 

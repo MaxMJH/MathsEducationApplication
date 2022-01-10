@@ -102,7 +102,7 @@ class StudentTable(
      */
     fun studentExists(studentName: String): Int {
         val database: SQLiteDatabase = this.readableDatabase
-        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnStudentID}\" FROM \"${this.tableName}\" WHERE '$studentName' = \"${this.tableName}\".\"${this.columnStudentName}\";"
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnStudentID}\" FROM \"${this.tableName}\" WHERE \"${this.tableName}\".\"${this.columnStudentName}\" = '$studentName';"
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 

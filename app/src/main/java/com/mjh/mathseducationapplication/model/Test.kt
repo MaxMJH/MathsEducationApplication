@@ -29,12 +29,14 @@ data class Test(
      * @param allQuestions An Array List of type [Question] which contains a pool of questions to be used in the [Test].
      */
     fun populateQuestionsPool(allQuestions: ArrayList<Question>) {
-        if(allQuestions.size == 0) {
+        // In order to work, the question MUST have at least 14 questions, having 13 will not work.
+        if(allQuestions.size < 14) {
             return
         }
 
         // As per requirements, 14 questions will be pulled from the questions pool.
         for(i in 1..14) {
+            println(i)
             // Randomly pull questions.
             val randomNumber: Int = (0 until allQuestions.size).random()
 

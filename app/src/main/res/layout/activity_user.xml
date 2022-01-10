@@ -7,38 +7,19 @@
     android:background="@drawable/background"
     tools:context=".UserActivity">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayoutPassword"
-        android:layout_width="346dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="33dp"
-        android:elevation="10dp"
+    <TextView
+        android:id="@+id/textViewEmptyUsersListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="231dp"
+        android:layout_marginEnd="7dp"
+        android:text="@string/textViewEmptyUsersListView"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEnterPasswordInfo">
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@drawable/edit_text"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:paddingLeft="14dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/textViewPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="14dp"
-            android:paddingBottom="5dp"
-            android:text="@string/textViewPassword"
-            android:textColor="#616161" />
-
-    </RelativeLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewEnterPassword"
@@ -86,6 +67,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <RelativeLayout
+        android:id="@+id/relativeLayoutPassword"
+        android:layout_width="346dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="108dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:paddingLeft="14dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textViewPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="14dp"
+            android:paddingBottom="5dp"
+            android:text="@string/textViewPassword"
+            android:textColor="#616161" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -99,8 +114,12 @@
             android:id="@+id/listViewUsers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
             android:divider="#F19B1A"
-            android:dividerHeight="2dp" />
+            android:dividerHeight="2dp"
+            android:listSelector="@android:color/darker_gray">
+
+        </ListView>
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton

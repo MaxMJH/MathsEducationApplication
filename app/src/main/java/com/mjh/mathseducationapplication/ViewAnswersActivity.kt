@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import com.mjh.mathseducationapplication.R
 import com.mjh.mathseducationapplication.model.Answer
@@ -51,12 +52,16 @@ class ViewAnswersActivity : AppCompatActivity() {
 
         val answers: List<Answer> = this.answerTable.getAnswers()
 
+        if(answers.isNotEmpty()) {
+            findViewById<TextView>(R.id.textViewEmptyAnswersListView).visibility = View.INVISIBLE
+        }
+
         this.adapter = AnswerAdapter(applicationContext, answers)
         findViewById<ListView>(R.id.listViewAnswers).adapter = this.adapter
 
         // On Click Listener which gets the clicked on Answer.
         findViewById<ListView>(R.id.listViewAnswers).setOnItemClickListener { parent, view, position, id ->
-            this.selectedAnswer = answers[position]
+            this.selectedAnswer = this.answerTable.getAnswers()[position]
         }
     }
 }

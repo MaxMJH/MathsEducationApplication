@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import com.mjh.mathseducationapplication.model.Admin
 import com.mjh.mathseducationapplication.model.User
@@ -42,6 +43,8 @@ class UserActivity : AppCompatActivity() {
                 val admin: Admin = Admin(-1, this.selectedAnswer!!.username, enteredPassword, this.selectedAnswer!!.userID)
                 this.adminTable.addAdmin(admin)
 
+                println("ti")
+
                 this.adapter.updateList(this.userTable.getUsers().filter { !this.adminTable.adminExists(it.userID) })
                 this.adapter.notifyDataSetChanged()
 
@@ -62,16 +65,18 @@ class UserActivity : AppCompatActivity() {
         this.userTable = UserTable(this, "MathsEducation.db", 1)
         this.adminTable = AdminTable(this, "MathsEducation.db", 1)
 
-        val admin: Admin = intent.getSerializableExtra("admin") as Admin
-
         val users: List<User> = this.userTable.getUsers().filter { !this.adminTable.adminExists(it.userID) }
+
+        if(users.isNotEmpty()) {
+            findViewById<TextView>(R.id.textViewEmptyUsersListView).visibility = View.INVISIBLE
+        }
 
         this.adapter = UserAdapter(applicationContext, users)
         findViewById<ListView>(R.id.listViewUsers).adapter = this.adapter
 
         // On Click Listener which gets the clicked on User.
         findViewById<ListView>(R.id.listViewUsers).setOnItemClickListener { parent, view, position, id ->
-            this.selectedAnswer = users[position]
+            this.selectedAnswer = this.userTable.getUsers().filter { !this.adminTable.adminExists(it.userID) }[position]
         }
     }
 }

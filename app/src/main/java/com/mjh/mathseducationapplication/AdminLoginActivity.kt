@@ -38,7 +38,7 @@ class AdminLoginActivity : AppCompatActivity() {
 
             // Check to see if the admin exists.
             if(userID == -1) {
-                Toast.makeText(this, "This user is not an admin!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "This user does not exist!", Toast.LENGTH_SHORT).show()
             } else {
                 // Get the user's admin ID.
                 val adminID: Int = this.adminTable.adminExists(adminUsername)
@@ -52,7 +52,7 @@ class AdminLoginActivity : AppCompatActivity() {
                     }
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Incorrect Username or Password!", Toast.LENGTH_SHORT).show()
                 }
             }
         } else {

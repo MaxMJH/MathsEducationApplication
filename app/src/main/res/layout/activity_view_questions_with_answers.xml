@@ -8,6 +8,19 @@
     tools:context=".ViewQuestionsWithAnswersActivity">
 
     <TextView
+        android:id="@+id/textViewEmptyQuestionsAndAnswersListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="@string/textViewEmptyQuestionsAndAnswersListView"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textViewViewQuestionsWithAnswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,8 +48,12 @@
             android:id="@+id/listViewQuestionsAndAnswers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
             android:divider="#F19B1A"
-            android:dividerHeight="2dp"/>
+            android:dividerHeight="2dp"
+            android:listSelector="@android:color/darker_gray">
+
+        </ListView>
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton

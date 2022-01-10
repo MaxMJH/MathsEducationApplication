@@ -35,7 +35,7 @@
     <string name="textViewEnterAnswer">Enter Answer</string>
     <string name="textViewEnterAnswerInfo">These answers will be used as incorrect random answers</string>
     <string name="textViewAnswer">Answer</string>
-    <string name="textViewAnswers">Answers</string>
+    <string name="textViewAnswers">Answers Pool</string>
     <string name="buttonRemoveAnswer">Remove Answer</string>
     <string name="textViewUsers">Users</string>
     <string name="textViewEnterPassword">Enter User Password</string>
@@ -44,4 +44,8 @@
     <string name="buttonMakeAdmin">Make Admin</string>
     <string name="textViewAdmins">Admins</string>
     <string name="textViewGraphError">This graph is empty, complete a test to fill it!</string>
+    <string name="textViewEmptyQuestionsAndAnswersListView">There are currently no questions or answers available</string>
+    <string name="textViewEmptyAnswersListView">There are currently no answers available</string>
+    <string name="textViewEmptyAdminsListView">There are currently no admins available</string>
+    <string name="textViewEmptyUsersListView">There are currently no users available</string>
 </resources>

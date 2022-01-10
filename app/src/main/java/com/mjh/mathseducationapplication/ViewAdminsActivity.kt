@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import com.mjh.mathseducationapplication.R
 import com.mjh.mathseducationapplication.model.Admin
@@ -31,13 +32,22 @@ class ViewAdminsActivity : AppCompatActivity() {
      */
     fun removeAdmin(view: View) {
         // Check that the user has selected an admin.
-        if(this.selectedAnswer != null || this.selectedAnswer?.adminID == 1) {
-            this.adminTable.removeAdmin(this.selectedAnswer!!)
+        if(this.selectedAnswer != null) {
+            // Get current admin.
+            val admin: Admin = intent.getSerializableExtra("admin") as Admin
 
-            this.adapter.updateList(this.adminTable.getAdmins())
-            this.adapter.notifyDataSetChanged()
+            // Ensure that admin cannot remove themselves.
+            if(this.selectedAnswer?.adminID != admin.adminID) {
 
-            this.selectedAnswer = null
+                this.adminTable.removeAdmin(this.selectedAnswer!!)
+
+                this.adapter.updateList(this.adminTable.getAdmins())
+                this.adapter.notifyDataSetChanged()
+
+                this.selectedAnswer = null
+            } else {
+                Toast.makeText(this, "You cannot remove yourself from admin!", Toast.LENGTH_SHORT).show()
+            }
         } else {
             Toast.makeText(this, "You must select an admin to delete!", Toast.LENGTH_SHORT).show()
         }
@@ -52,12 +62,16 @@ class ViewAdminsActivity : AppCompatActivity() {
 
         val admins: List<Admin> = this.adminTable.getAdmins()
 
+        if(admins.isNotEmpty()) {
+            findViewById<TextView>(R.id.textViewEmptyAdminsListView).visibility = View.INVISIBLE
+        }
+
         this.adapter = AdminAdapter(applicationContext, admins)
         findViewById<ListView>(R.id.listViewAdmins).adapter = this.adapter
 
         // On Click Listener which gets the clicked on Admin.
         findViewById<ListView>(R.id.listViewAdmins).setOnItemClickListener { parent, view, position, id ->
-            this.selectedAnswer = admins[position]
+            this.selectedAnswer = this.adminTable.getAdmins()[position]
         }
     }
 }

@@ -155,7 +155,6 @@ class TestActivity : AppCompatActivity() {
         this.studentAttemptTable = StudentAttemptTable(this, "MathsEducation.db", 1)
         this.studentTable = StudentTable(this, "MathsEducation.db", 1)
 
-
         // Create a temporary Test, Set result to -1 as Test has yet to be complete.
         this.student = intent.getSerializableExtra("student") as Student
         this.test = Test(-1, this.student.studentID, -1.0)

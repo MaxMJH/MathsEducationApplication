@@ -55,7 +55,7 @@ class AdminTable(
      */
     fun adminExists(adminUsername: String): Int {
         val database: SQLiteDatabase = this.readableDatabase
-        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminID}\" FROM \"${this.tableName}\" WHERE '$adminUsername' = \"${this.tableName}\".\"${this.columnAdminUsername}\";"
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminID}\" FROM \"${this.tableName}\" WHERE \"${this.tableName}\".\"${this.columnAdminUsername}\" = '$adminUsername' COLLATE NOCASE;"
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 
@@ -80,7 +80,7 @@ class AdminTable(
      */
     fun adminExists(userID: Int): Boolean {
         val database: SQLiteDatabase = this.readableDatabase
-        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminID}\" FROM \"${this.tableName}\" WHERE '$userID' = \"${this.tableName}\".\"${this.columnUserID}\";"
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminID}\" FROM \"${this.tableName}\" WHERE \"${this.tableName}\".\"${this.columnUserID}\" = '$userID';"
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 
@@ -106,7 +106,7 @@ class AdminTable(
      */
     fun checkPassword(adminUsername: String, password: String): Boolean {
         val database: SQLiteDatabase = this.readableDatabase
-        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminPassword}\" FROM \"${this.tableName}\" WHERE '$adminUsername' = \"${this.tableName}\".\"${this.columnAdminUsername}\";"
+        val sqlStatement: String = "SELECT \"${this.tableName}\".\"${this.columnAdminPassword}\" FROM \"${this.tableName}\" WHERE \"${this.tableName}\".\"${this.columnAdminUsername}\" = '$adminUsername' COLLATE NOCASE;"
 
         val cursor: Cursor = database.rawQuery(sqlStatement, null)
 

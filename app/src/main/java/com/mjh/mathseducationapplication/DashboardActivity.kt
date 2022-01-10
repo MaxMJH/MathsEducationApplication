@@ -42,8 +42,8 @@ class DashboardActivity : AppCompatActivity() {
      */
     fun startTest(view: View) {
         // Check if there are any questions or answers available.
-        if(this.questionTable.getQuestions().size == 0 || this.answerTable.getAnswers().size == 0) {
-            Toast.makeText(this, "No questions or answers available", Toast.LENGTH_SHORT).show()
+        if(this.questionTable.getQuestions().size < 14 || this.answerTable.getAnswers().size < 14) {
+            Toast.makeText(this, "Not enough questions or answers available", Toast.LENGTH_SHORT).show()
         } else {
             val user: User = intent.getSerializableExtra("user") as User
             val student: Student?
